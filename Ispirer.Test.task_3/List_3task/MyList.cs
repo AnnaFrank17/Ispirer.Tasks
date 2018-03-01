@@ -24,7 +24,7 @@ namespace List_3task
             myEvent.Invoke();
         }
 
-        public void show()
+        public void Show()
         {
             for (int i = 0; i < arra.Count(); i++)
             {
@@ -34,7 +34,7 @@ namespace List_3task
             Console.WriteLine();
         }
 
-        public void getelement()
+        public void GetElement()
         {
             Console.WriteLine("Enter index : ");
 

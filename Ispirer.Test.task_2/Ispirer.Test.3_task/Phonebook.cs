@@ -20,7 +20,10 @@ namespace Ispirer.Test.task_3
         {
             Phonebook phonebook;
             XmlSerializer xmlserial = new XmlSerializer(typeof(Phonebook));
-
+            if (!File.Exists("phone_book.xml"))
+            {
+                throw new Exception("File not exist");
+            }
             using (FileStream fs = new FileStream("phone_book.xml", FileMode.Open))
             {
                 phonebook = xmlserial.Deserialize(fs) as Phonebook;

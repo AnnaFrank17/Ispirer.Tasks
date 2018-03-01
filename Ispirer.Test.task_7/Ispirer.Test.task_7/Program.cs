@@ -13,6 +13,10 @@ namespace Ispirer.Test.task_7
         {
 
             byte[] byte_array;
+            if (!File.Exists("bytes.txt"))
+            {
+                throw new FileNotFoundException();
+            }
             using (FileStream fs = new FileStream("bytes.txt", FileMode.Open))
             {
                 byte_array = new byte[fs.Length];

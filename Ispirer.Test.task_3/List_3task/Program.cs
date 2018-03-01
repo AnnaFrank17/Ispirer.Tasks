@@ -12,7 +12,7 @@ namespace List_3task
         {
 
             MyList<int> list = new MyList<int>();
-            list.myEvent += event_size;
+            list.myEvent += Event_size;
 
             for (; ; )
             {
@@ -23,33 +23,37 @@ namespace List_3task
 
                 string num = Console.ReadLine(); ;
 
-                choice(num, list);
+                Choice(num, list);
             }
 
         }
-        public static void choice(string ch, MyList<int> list)
+        public static void Choice(string ch, MyList<int> list)
         {
             switch (ch)
             {
                 case "1":
                     Console.WriteLine("Enter objcet to add : ");
-                    string p = Console.ReadLine();
-                    int v = Convert.ToInt32(p);
+                    int v;
+                    while (!int.TryParse(Console.ReadLine(), out v))
+                    {
+                       // Console.Clear();
+                        Console.WriteLine("Not int, try again");
+                    }
 
                     list.add(v);
                     break;
 
                 case "2":
-                    list.show();
+                    list.Show();
                     break;
 
-                case "3": list.getelement();
+                case "3": list.GetElement();
 
                     break;
             }
         }
 
-        public static void event_size()
+        public static void Event_size()
         {
             Console.WriteLine("Size was changed!");
 

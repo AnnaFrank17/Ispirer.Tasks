@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -12,6 +13,10 @@ namespace Ispirer.Test.task_8
         static void Main(string[] args)
         {
             string path = args[0];
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException();
+            }
             var assembly = Assembly.LoadFile(path);
 
             foreach (var group in assembly.GetTypes().GroupBy(i=>i.Namespace))
